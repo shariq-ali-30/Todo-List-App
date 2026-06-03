@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <title>Todo List</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="title">
+                <h1>Todo List</h1>
+                <div class="icon"><i class="fa-solid fa-list"></i></div>
+            </div>
+            <p>Stay organised and get things done</p>
+        </div>
+
+        <div class="input-field">
+            <form id="form">
+                <div>
+                    <input type="text" placeholder="Enter a task..." id="taskInput">
+                    <button>Add Task</button>
+                </div>
+            </form>
+            <span class="error-messaage">Please enter a task.</span>
+        </div>
+
+        <div class="todo-list-container">
+            <div class="list-header">
+                <h3>Your Tasks</h3>
+                <button id="deleteAllBtn"><i class="fa-regular fa-trash-can"></i> Delete All</button>
+            </div>
+            <div class="message">Your tasks will appear here</div>
+            <ul class="todo-list">
+            </ul>
+        </div>
+    </div>
+
+
+    <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #F7F8FC;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 400px;
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
+    border-radius: 12px;
+    padding: 20px;
+}
+
+.container .header .title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 13px;
+    color: #09132E;
+}
+
+.container .header .title .icon {
+    height: 45px;
+    width: 45px;
+    background-color: #D7E8FD;
+    border-radius: 7px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+    color: #0055FE;
+}
+
+.container .header p {
+    font-size: 15px;
+    color: #5D606F;
+}
+
+.container .input-field div {
+    margin-top: 18px;
+    display: flex;
+}
+
+
+
+.container .input-field div input {
+    width: 100%;
+    height: 45px;
+    border: 1.5px solid #D7DCE6;
+    border-radius: 4px 0 0 4px;
+    border-right: none;
+    font-size: 16px;
+    padding: 0 12px;
+    outline: none;
+}
+
+.container .input-field div button {
+    white-space: nowrap;
+    padding: 0 12px;
+    border-radius: 0 5px 5px 0;
+    border: none;
+    outline: none;
+    background-color: #0055FE;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.container .input-field div button:active {
+    background-color: #0050f1;
+}
+
+.container .input-field span {
+    color: #DF1D1E;
+    font-size: 14px;
+    margin-left: 8px;
+    visibility: hidden;
+}
+
+.container .input-field span.active {
+    visibility: visible;
+}
+
+.container .todo-list-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.container .todo-list-container .message {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    font-size: 18px;
+    color: #575a69c8;
+}
+
+.container .todo-list-container .list-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #09132E;
+}
+
+.container .todo-list-container .list-header button {
+    padding: 9px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    font-weight: 500;
+    background-color: #DF1D1E;
+    border: none;
+    color: #fff;
+    border-radius: 4px;
+    outline: none;
+    cursor: pointer;
+}
+
+.container .todo-list-container .list-header button:active {
+    scale: 0.98;
+}
+
+.container .todo-list-container .todo-list {
+    position: relative;
+    height: 350px;
+    margin-top: 25px;
+    overflow: auto;
+    scrollbar-width: none;
+}
+
+.container .todo-list-container .todo-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 6px;
+    background-color: #fff;
+    border: 1.5px solid #E9F0F8;
+    padding: 13px;
+    font-size: 15px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    transition: background-color 0.3s ease;
+}
+
+.container .todo-list-container .todo-list li:hover {
+    background-color: #f8f8f8;
+}
+
+.container .todo-list-container .todo-list li .icons {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.container .todo-list-container .todo-list li .icons i {
+    cursor: pointer;
+}
+
+.container .todo-list-container .todo-list li .icons .fa-pencil {
+    color: #575A69;
+}
+
+.container .todo-list-container .todo-list li .icons .fa-trash-can {
+    color: #DF1D1E;
+}
+
+@media (max-width: 450px) {
+    
+    body {
+        background-color: #fff;
+        align-items: start;
+    }
+
+    .container {
+        width: 100%;
+        box-shadow: none;
+        border-radius: 0;
+        padding: 25px 15px;
+        height: 100%;
+    }
+
+    .container .todo-list-container {
+        height: 100%;
+    }
+
+    .container .todo-list-container .todo-list {
+        height: 480px;
+    }
+
+
+    .container .input-field div button,
+    .container .todo-list-container .list-header button,
+    .container .todo-list-container .todo-list li .icons i {
+        cursor: default;
+    }
+}
