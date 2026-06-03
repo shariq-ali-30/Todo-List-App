@@ -55,6 +55,7 @@ function deleteItem(deleteIcon) {
 
 function editItem(editIcon) {
     taskInput.value = editIcon.parentNode.previousElementSibling.innerText
+    taskInput.focus()
     editIcon.parentNode.parentNode.remove()
 
     if (todoList.children.length > 0) {
