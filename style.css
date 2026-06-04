@@ -202,6 +202,10 @@ body {
         height: 100%;
     }
 
+    .container .todo-list-container .message {
+        top: 45%;
+    }
+
     .container .todo-list-container .todo-list {
         height: 480px;
     }
