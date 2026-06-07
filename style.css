@@ -10,8 +10,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh;
+    padding: 15px;
+    overflow: auto;
 }
 
 .container {
@@ -54,8 +55,6 @@ body {
     margin-top: 18px;
     display: flex;
 }
-
-
 
 .container .input-field div input {
     width: 100%;
@@ -100,13 +99,15 @@ body {
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    flex-grow: 1;
+    min-height: 0;
 }
 
 .container .todo-list-container .message {
     position: absolute;
     top: 50%;
     left: 50%;
+    z-index: 1;
     transform: translate(-50%, -50%);
     white-space: nowrap;
     font-size: 18px;
@@ -140,8 +141,7 @@ body {
 }
 
 .container .todo-list-container .todo-list {
-    position: relative;
-    height: 350px;
+    flex-grow: 1;
     margin-top: 25px;
     overflow: auto;
     scrollbar-width: none;
@@ -184,10 +184,11 @@ body {
 }
 
 @media (max-width: 450px) {
-    
+
     body {
         background-color: #fff;
         align-items: start;
+        padding: 0;
     }
 
     .container {
@@ -205,11 +206,6 @@ body {
     .container .todo-list-container .message {
         top: 45%;
     }
-
-    .container .todo-list-container .todo-list {
-        height: 480px;
-    }
-
 
     .container .input-field div button,
     .container .todo-list-container .list-header button,

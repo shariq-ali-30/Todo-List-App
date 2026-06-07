@@ -11,6 +11,7 @@ function addTask(e) {
 
     if (!taskInput.value.trim()) {
         errorMsg.classList.add("active")
+        taskInput.focus()
 
         setTimeout(() => {
             errorMsg.classList.remove("active")
