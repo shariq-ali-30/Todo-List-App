@@ -196,11 +196,7 @@ body {
         box-shadow: none;
         border-radius: 0;
         padding: 25px 15px;
-        height: 100%;
-    }
-
-    .container .todo-list-container {
-        height: 100%;
+        height: 100vh;
     }
 
     .container .todo-list-container .message {
