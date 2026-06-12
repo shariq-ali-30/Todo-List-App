@@ -95,6 +95,10 @@ body {
     visibility: visible;
 }
 
+.container .input-field form {
+    position: relative;
+}
+
 .container .todo-list-container {
     position: relative;
     display: flex;
@@ -196,7 +200,7 @@ body {
         box-shadow: none;
         border-radius: 0;
         padding: 25px 15px;
-        height: 100vh;
+        min-height: 100vh;
     }
 
     .container .todo-list-container .message {

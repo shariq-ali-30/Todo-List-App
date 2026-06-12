@@ -1,9 +1,12 @@
 let taskInput = document.getElementById("taskInput")
+let addTaskBtn = document.getElementById("addTaskBtn")
 let form = document.getElementById("form")
 let todoList = document.querySelector(".todo-list")
 let message = document.querySelector(".message")
 let errorMsg = document.querySelector(".error-messaage")
 let deleteAllBtn = document.getElementById("deleteAllBtn")
+let editMode = false
+let currentEditElement = null;
 
 function addTask(e) {
 
@@ -20,16 +23,26 @@ function addTask(e) {
         return;
     }
 
-    let li = document.createElement("li")
-    li.innerHTML = `<p>${taskInput.value}</p>
+    if (!editMode) {
+
+        let li = document.createElement("li")
+        li.innerHTML = `<p>${taskInput.value}</p>
                     <div class="icons">
                         <i class="fa-solid fa-pencil" onclick="editItem(this)"></i>
                         <i class="fa-solid fa-trash-can" onclick="deleteItem(this)"></i>
                     </div>`
 
-    todoList.appendChild(li)
-    taskInput.value = ""
-    errorMsg.classList.remove("active")
+        todoList.insertBefore(li, todoList.firstChild)
+        taskInput.value = ""
+        errorMsg.classList.remove("active")
+    }
+
+    if (editMode) {
+        currentEditElement.innerText = taskInput.value
+        addTaskBtn.innerText = "Add Task"
+        taskInput.value = ""
+        editMode = false
+    }
 
     if (todoList.children.length > 0) {
         message.style.display = "none"
@@ -55,15 +68,11 @@ function deleteItem(deleteIcon) {
 }
 
 function editItem(editIcon) {
+    editMode = true
+    currentEditElement = editIcon.parentNode.previousElementSibling
     taskInput.value = editIcon.parentNode.previousElementSibling.innerText
     taskInput.focus()
-    editIcon.parentNode.parentNode.remove()
-
-    if (todoList.children.length > 0) {
-        message.style.display = "none"
-    } else {
-        message.style.display = "block"
-    }
+    addTaskBtn.innerText = "Update Task"
 }
 
 form.addEventListener("submit", addTask)
