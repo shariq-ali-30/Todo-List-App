@@ -1,3 +1,63 @@
+:root {
+    --bg-body: #F7F8FC;
+    --bg-container: #fff;
+    --bg-toggle: #D7E8FD;
+    --bg-btn-primary: #0055FE;
+    --bg-btn-primary-active: #0050f1;
+    --bg-btn-danger: #DF1D1E;
+    --bg-list-item: #fff;
+    --bg-list-item-hover: #f8f8f8;
+    --bg-mobile-body: #fff;
+
+    --text-1: #000;
+    --text-2: #09132E;
+    --text-3: #fff;
+    --text-4: #5D606F;
+    --toggle-icon-color: #0055FE;
+    --text-error: #DF1D1E;
+    --text-icon-trash: #DF1D1E;
+    --text-icon-pencil: #575A69;
+    --text-message: #575a69c8;
+
+    --border-input: 1.5px solid #D7DCE6;
+    --border-list-item: 1.5px solid #E9F0F8;
+    --shadow-container: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
+}
+
+.dark-mode {
+    --bg-body: #0B0F19;
+    --bg-container: #161B26;
+    --bg-toggle: #222B3E;
+    --bg-btn-primary: #3876FF;
+    --bg-btn-primary-active: #2A65EC;
+    --bg-btn-danger: #E53E3E;
+    --bg-list-item: #161B26;
+    --bg-list-item-hover: #1D2432;
+    --bg-mobile-body: #161B26;
+
+    --text-1: #FFFFFF;
+    --text-2: #E2E8F0;
+    --text-3: #FFFFFF;
+    --text-4: #94A3B8;
+    --toggle-icon-color: #3876FF;
+    --text-error: #F56565;
+    --text-icon-trash: #F56565;
+    --text-icon-pencil: #A0AEC0;
+    --text-message: #A0AEC0A0;
+
+    --border-input: 1.5px solid #2D3748;
+    --border-list-item: 1.5px solid #232D3F;
+    --shadow-container: rgba(0, 0, 0, 0.4) 0px 7px 29px 0px;
+}
+
+body, 
+div, 
+button, 
+input, 
+li {
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -6,7 +66,7 @@
 }
 
 body {
-    background-color: #F7F8FC;
+    background-color: var(--bg-body);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,8 +80,8 @@ body {
     height: 600px;
     display: flex;
     flex-direction: column;
-    background-color: #fff;
-    box-shadow: rgba(100, 100, 111, 0.1) 0px 7px 29px 0px;
+    background-color: var(--bg-container);
+    box-shadow: var(--shadow-container);
     border-radius: 12px;
     padding: 20px;
 }
@@ -31,24 +91,25 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 13px;
-    color: #09132E;
+    color: var(--text-2);
 }
 
-.container .header .title .icon {
+.container .header .title #themeToggle {
     height: 45px;
     width: 45px;
-    background-color: #D7E8FD;
-    border-radius: 7px;
+    background-color: var(--bg-toggle);
+    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 22px;
-    color: #0055FE;
+    font-size: 23px;
+    color: var(--toggle-icon-color);
+    cursor: pointer;
 }
 
 .container .header p {
     font-size: 15px;
-    color: #5D606F;
+    color: var(--text-4);
 }
 
 .container .input-field div {
@@ -59,12 +120,18 @@ body {
 .container .input-field div input {
     width: 100%;
     height: 45px;
-    border: 1.5px solid #D7DCE6;
+    border: var(--border-input);
+    color: var(--text-1);
+    background-color: transparent;
     border-radius: 4px 0 0 4px;
     border-right: none;
     font-size: 16px;
     padding: 0 12px;
     outline: none;
+}
+
+.container .input-field div input::placeholder {
+    color: var(--text-4);
 }
 
 .container .input-field div button {
@@ -73,25 +140,28 @@ body {
     border-radius: 0 5px 5px 0;
     border: none;
     outline: none;
-    background-color: #0055FE;
-    color: #fff;
+    background-color: var(--bg-btn-primary);
+    color: var(--text-3);
     font-size: 14px;
     font-weight: 500;
     cursor: pointer;
 }
 
 .container .input-field div button:active {
-    background-color: #0050f1;
+    background-color: var(--bg-btn-primary-active);
 }
 
-.container .input-field span {
-    color: #DF1D1E;
+.container .input-field .error-message {
+    display: block;
+    width: fit-content;
+    color: var(--text-error);
     font-size: 14px;
-    margin-left: 8px;
+    margin-top: 3px;
+    margin-left: 3px;
     visibility: hidden;
 }
 
-.container .input-field span.active {
+.container .input-field .error-message.active {
     visibility: visible;
 }
 
@@ -115,14 +185,14 @@ body {
     transform: translate(-50%, -50%);
     white-space: nowrap;
     font-size: 18px;
-    color: #575a69c8;
+    color: var(--text-message);
 }
 
 .container .todo-list-container .list-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: #09132E;
+    color: var(--text-2);
 }
 
 .container .todo-list-container .list-header button {
@@ -132,9 +202,9 @@ body {
     align-items: center;
     gap: 5px;
     font-weight: 500;
-    background-color: #DF1D1E;
+    background-color: var(--bg-btn-danger);
     border: none;
-    color: #fff;
+    color: var(--text-3);
     border-radius: 4px;
     outline: none;
     cursor: pointer;
@@ -156,17 +226,19 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 6px;
-    background-color: #fff;
-    border: 1.5px solid #E9F0F8;
+    background-color: var(--bg-list-item);
+    border: var(--border-list-item);
+    color: var(--text-1);
     padding: 13px;
     font-size: 15px;
     border-radius: 4px;
     margin-bottom: 8px;
-    transition: background-color 0.3s ease;
+    /* transition: background-color 0.3s ease; */
+
 }
 
 .container .todo-list-container .todo-list li:hover {
-    background-color: #f8f8f8;
+    background-color: var(--bg-list-item-hover);
 }
 
 .container .todo-list-container .todo-list li .icons {
@@ -180,17 +252,29 @@ body {
 }
 
 .container .todo-list-container .todo-list li .icons .fa-pencil {
-    color: #575A69;
+    color: var(--text-icon-pencil);
 }
 
 .container .todo-list-container .todo-list li .icons .fa-trash-can {
-    color: #DF1D1E;
+    color: var(--text-icon-trash);
+}
+
+@media (min-width: 1300px) {
+    .container {
+        width: 450px;
+        height: 700px;
+        border-radius: 15px;
+    }
+
+    .container .todo-list-container .todo-list li .icons {
+        gap: 20px;
+    }
 }
 
 @media (max-width: 450px) {
 
     body {
-        background-color: #fff;
+        background-color: var(--bg-mobile-body);
         align-items: start;
         padding: 0;
     }
@@ -209,7 +293,8 @@ body {
 
     .container .input-field div button,
     .container .todo-list-container .list-header button,
-    .container .todo-list-container .todo-list li .icons i {
+    .container .todo-list-container .todo-list li .icons i,
+    .container .header .title #themeToggle {
         cursor: default;
     }
 }

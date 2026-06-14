@@ -3,10 +3,25 @@ let addTaskBtn = document.getElementById("addTaskBtn")
 let form = document.getElementById("form")
 let todoList = document.querySelector(".todo-list")
 let message = document.querySelector(".message")
-let errorMsg = document.querySelector(".error-messaage")
+let errorMsg = document.querySelector(".error-message")
 let deleteAllBtn = document.getElementById("deleteAllBtn")
+let themeToggle = document.getElementById("themeToggle")
 let editMode = false
 let currentEditElement = null;
+
+if (!localStorage.getItem("theme")) {
+    localStorage.setItem("theme", "light")
+}
+
+let theme = localStorage.getItem("theme")
+
+if (theme == "light") {
+    themeToggle.children[0].classList.replace("fa-moon", "fa-sun")
+    document.getElementsByTagName("body")[0].classList.remove("dark-mode")
+} else {
+    themeToggle.children[0].classList.replace("fa-sun", "fa-moon")
+    document.getElementsByTagName("body")[0].classList.add("dark-mode")
+}
 
 function addTask(e) {
 
@@ -75,5 +90,21 @@ function editItem(editIcon) {
     addTaskBtn.innerText = "Update Task"
 }
 
+function changeTheme() {
+
+    let currentTheme = localStorage.getItem("theme")
+
+    if (currentTheme == "light") {
+        localStorage.setItem("theme", "dark")
+        themeToggle.children[0].classList.replace("fa-sun", "fa-moon")
+        document.getElementsByTagName("body")[0].classList.add("dark-mode")
+    } else {
+        localStorage.setItem("theme", "light")
+        themeToggle.children[0].classList.replace("fa-moon", "fa-sun")
+        document.getElementsByTagName("body")[0].classList.remove("dark-mode")
+    }
+}
+
 form.addEventListener("submit", addTask)
 deleteAllBtn.addEventListener("click", deleteAllItems)
+themeToggle.addEventListener("click", changeTheme)
