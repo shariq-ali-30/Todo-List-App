@@ -53,7 +53,7 @@
 body, 
 div, 
 button, 
-input, 
+input,
 li {
     transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
@@ -233,8 +233,6 @@ body {
     font-size: 15px;
     border-radius: 4px;
     margin-bottom: 8px;
-    /* transition: background-color 0.3s ease; */
-
 }
 
 .container .todo-list-container .todo-list li:hover {
