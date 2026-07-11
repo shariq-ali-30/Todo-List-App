@@ -20,10 +20,10 @@ let theme = localStorage.getItem("theme")
 let allTasks = JSON.parse(localStorage.getItem("allTasks"))
 
 if (theme == "light") {
-    themeToggle.children[0].classList.replace("fa-moon", "fa-sun")
+    themeToggle.children[0].classList.replace("fa-sun", "fa-moon")
     document.getElementsByTagName("body")[0].classList.remove("dark-mode")
 } else {
-    themeToggle.children[0].classList.replace("fa-sun", "fa-moon")
+    themeToggle.children[0].classList.replace("fa-moon", "fa-sun")
     document.getElementsByTagName("body")[0].classList.add("dark-mode")
 }
 
@@ -158,15 +158,21 @@ function editItem(editIcon) {
 
 function changeTheme() {
 
+    document.body.classList.add("no-transition")
+
+    setTimeout(() => {
+        document.body.classList.remove("no-transition")
+    }, 500);
+
     let currentTheme = localStorage.getItem("theme")
 
     if (currentTheme == "light") {
         localStorage.setItem("theme", "dark")
-        themeToggle.children[0].classList.replace("fa-sun", "fa-moon")
+        themeToggle.children[0].classList.replace("fa-moon", "fa-sun")
         document.getElementsByTagName("body")[0].classList.add("dark-mode")
     } else {
         localStorage.setItem("theme", "light")
-        themeToggle.children[0].classList.replace("fa-moon", "fa-sun")
+        themeToggle.children[0].classList.replace("fa-sun", "fa-moon")
         document.getElementsByTagName("body")[0].classList.remove("dark-mode")
     }
 }
